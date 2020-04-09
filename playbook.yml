@@ -23,6 +23,6 @@
         name: docker_ansible
         state: present
         image: "{{ image }}"
-        exposed_port:
+        exposed_ports:
         - 8090:80
         

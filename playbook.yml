@@ -18,6 +18,7 @@
       docker_image:
         name: "{{ image }}"
         state: present
+        force: yes
     - name: create container
       docker_container:
         recreate: yes

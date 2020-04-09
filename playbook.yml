@@ -21,7 +21,7 @@
     - name: create container
       docker_container:
         name: docker_ansible
-        state: present
+        state: started
         image: "{{ image }}"
         exposed_ports:
         - 8090:80

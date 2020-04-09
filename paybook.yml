@@ -1,0 +1,28 @@
+- hosts: server
+  vars:
+    image: ajizkai/docker-ansible:beta
+  tasks:
+    - name: install python-docker ubuntu
+      apt:
+        name: python-docker
+        state: present
+      when: 
+      - ansible_distribution == "Ubuntu"
+    - name: install python-docker centos
+      yum:
+        name: python-docker
+        state: present
+      when:
+      - ansible_distribution == "CentOS"
+    - name: pull image
+      docker_image:
+        name: "{{ image }}"
+        state: present
+    - name: create container
+      docker_container:
+        name: docker_ansible
+        state: present
+        image: "{{ image }}"
+        exposed_port:
+        - 8090:80
+        

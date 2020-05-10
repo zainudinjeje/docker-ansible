@@ -1,6 +1,6 @@
 - hosts: server
   vars:
-    image: zainudinjeje/docker-ansible:beta
+    image: jeje17/docker-ansible:beta
   tasks:
     - name: install python-docker ubuntu
       apt:
